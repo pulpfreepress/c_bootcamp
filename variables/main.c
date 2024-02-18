@@ -10,7 +10,7 @@ int main(){
     char capital_letter = 'Y';      // Declaration and Initialization Combined
     float average = 10.1234;
     char first_name[] = "Rick";     // A string is an array of chars
-    char *last_name = "Miller";     // Equavilent, but more about pointers later
+    char *last_name = "Miller";     // Equivalent, but more about pointers later
 
     printf("Student Count = %d\n", student_count);
     printf("Capital Letter = %c\n", capital_letter);
