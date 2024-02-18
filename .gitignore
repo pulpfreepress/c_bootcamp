@@ -1,6 +1,7 @@
 # Directories & Files
 .DS_Store
 *.dSYM
+.vscode
 
 # Prerequisites
 *.d
