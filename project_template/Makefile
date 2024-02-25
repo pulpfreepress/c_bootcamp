@@ -42,7 +42,7 @@ clean: ## Clean the project (i.e., delete build and dist directories.)
 	rm -rf $(BUILDDIR)
 	rm -rf $(DISTDIR)
 
-setup: clean
+setup: clean ## Initializes build environment
 	mkdir $(BUILDDIR)
 	mkdir $(DISTDIR)
 
