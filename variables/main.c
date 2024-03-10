@@ -20,7 +20,7 @@ int main(){
     printf("-------------------------------------\n");
 
     int some_ascii_value = 65;
-    printf("Some ASCII Value: %c", (char)some_ascii_value);
+    printf("Some ASCII Value: %c\n", (char)some_ascii_value);
 
     return 0;
 }
