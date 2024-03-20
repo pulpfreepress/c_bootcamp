@@ -26,14 +26,19 @@ int main(){
 
 	int a;
 	long b;
-	int int_array[] = {1, 2, 3, 4 , 5};
-	long long_array[] = { 1, 2, 3, 4, 5};
+	int int_array[5];
+	long long_array[5];
 
 	printf("%s\n", "Size of variables and arrays.");
 	printf("%20s\t%2lu\n", "sizeof(a)", sizeof(a));
 	printf("%20s\t%2lu\n", "sizeof(b)", sizeof(b));
 	printf("%20s\t%2lu\n", "sizeof(int_array)", sizeof(int_array));
 	printf("%20s\t%2lu\n", "sizeof(long_array)", sizeof(long_array));
+
+	for(int i = 0; i<5; i++){
+		long_array[i] = 0;
+		printf("%ld ", long_array[i]);
+	}
 
 	return 0;
 }
