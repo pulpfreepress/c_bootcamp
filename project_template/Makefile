@@ -1,7 +1,7 @@
 SHELL=bash
 CONFIRM=0
 MAKEFLAGS+= --no-print-directory
-TOOLS=git make gcc
+TOOLS=git make gcc aws
 VERSION=`git describe --tags --always`
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -24,7 +24,7 @@ __check-tools:
 check-tools: ## Check if required tools are installed
 	@$(MAKE) __check-tools CONFIRM=1
 
-run: all
+run: all  ## Build everything and run the app
 	@dist/mainapp
 
 all: setup $(NAME) ## Setup and Build everything
