@@ -1,6 +1,7 @@
-/* Demonstrate file access. */
+/* Demonstrate file access and using the getline() function. */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(){
 
@@ -19,10 +20,14 @@ int main(){
         if(characters_read > 1 ){
             if(fp){
                 fputs(input_string, fp);
+                printf("%lu chars written to file.\n", characters_read);
             }
         } else {
             keep_going = 0;
             fclose(fp);
+            free(input_string);
+            fp = NULL;
+            input_string = NULL;
         }
     }
 
