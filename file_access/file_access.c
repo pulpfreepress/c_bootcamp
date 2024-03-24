@@ -1,4 +1,4 @@
-/* Demonstrate file access and using the getline() function. */
+/* Demonstrate file access and the getline() function. */
 
 #include <stdio.h>
 #include <stdlib.h>
