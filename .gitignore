@@ -4,6 +4,7 @@
 .vscode
 dist/
 build/
+*.txt
 
 
 # Prerequisites
