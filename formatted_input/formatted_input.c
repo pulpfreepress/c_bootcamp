@@ -8,7 +8,7 @@ int main(){
     char first_name[26];
     char last_name[26];
     
-    printf("What's your first and last name?");
+    printf("%s ","What's your first and last name?");
     scanf("%25s", first_name);
     scanf("%25s", last_name);
     printf("%-25s\n", first_name);

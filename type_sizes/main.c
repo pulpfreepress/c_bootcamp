@@ -16,7 +16,7 @@ int main(){
 	printf("%20s\t%2lu\n", "sizeof(float)", sizeof(float));
 	printf("%20s\t%2lu\n", "sizeof(double)", sizeof(double));
 
-	// unsigned  signed
+	// unsigned
 
 	printf("%20s\t%2lu\n", "sizeof(unsigned short)", sizeof(unsigned short));
 	printf("%20s\t%2lu\n", "sizeof(unsigned int)", sizeof(unsigned int));
