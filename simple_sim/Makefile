@@ -30,7 +30,8 @@ run: all  ## Build everything and run the app
 all: setup $(NAME) ## Setup and Build everything
 
 $(NAME): $(OFILES) ## Build application
-	$(CC) -o $(DISTDIR)/$(NAME) $(BUILDDIR)/main.o $(BUILDDIR)/simplesim.o 
+	$(CC) $(CFLAGS) -o $(DISTDIR)/$(NAME) $(BUILDDIR)/main.o $(BUILDDIR)/simplesim.o
+
 
 main.o:  ## Build main.o
 	$(CC) -o $(BUILDDIR)/main.o -c $(SOURCEDIR)/main.c 
