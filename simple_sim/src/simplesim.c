@@ -69,52 +69,52 @@ void run(){
             }
             
             case WRITE: {
-                printf("Not Implemented...\n");
+                printf("WRITE Not Implemented...\n");
                 break;
             }
 
             case LOAD: {
-                printf("Not Implemented...\n");
+                printf("LOAD Not Implemented...\n");
                 break;
             }
 
             case STORE: {
-                printf("Not Implemented...\n");
+                printf("STORE Not Implemented...\n");
                 break;
             }
 
             case ADD: {
-                printf("Not Implemented...\n");
+                printf("ADD Not Implemented...\n");
                 break;
             }
 
             case SUB: {
-                printf("Not Implemented...\n");
+                printf("SUB Not Implemented...\n");
                 break;
             }
 
             case MUL: {
-                printf("Not Implemented...\n");
+                printf("MUL Not Implemented...\n");
                 break;
             }
 
             case DIV: {
-                printf("Not Implemented...\n");
+                printf("DIV Not Implemented...\n");
                 break;
             }
 
             case JMP: {
-                printf("Not Implemented...\n");
+                printf("JMP Not Implemented...\n");
                 break;
             }
 
             case JMPZ: {
-                printf("Not Implemented...\n");
+                printf("JMPZ Not Implemented...\n");
                 break;
             }
 
             case JMPN: {
-                printf("Not Implemented...\n");
+                printf("JMPN Not Implemented...\n");
                 break;
             }
 

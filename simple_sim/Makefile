@@ -5,12 +5,12 @@ TOOLS=git make gcc aws
 VERSION=`git describe --tags --always`
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-CFILES = $(wildcard $(SOURCEDIR)/*.c)
-OFILES = $(CFILES:$(SOURCEDIR)/%.c=%.o)
-NAME = simplesim
 SOURCEDIR = src
 DISTDIR = dist
 BUILDDIR = build
+CFILES = $(wildcard $(SOURCEDIR)/*.c)
+OFILES = $(CFILES:$(SOURCEDIR)/%.c=%.o)
+NAME = simplesim
 
 .PHONY: clean setup all
 
@@ -31,7 +31,6 @@ all: setup $(NAME) ## Setup and Build everything
 
 $(NAME): $(OFILES) ## Build application
 	$(CC) $(CFLAGS) -o $(DISTDIR)/$(NAME) $(BUILDDIR)/main.o $(BUILDDIR)/simplesim.o
-
 
 main.o:  ## Build main.o
 	$(CC) -o $(BUILDDIR)/main.o -c $(SOURCEDIR)/main.c 
