@@ -28,7 +28,15 @@ int main(){
 	if(people_array){
 
 		for(int i = 0; i < ARRAY_LENGTH; i++){
+			printf("Is NULL: %s\n", people_array[i] == NULL ? "Y" : "N");
+		}
+
+		for(int i = 0; i < ARRAY_LENGTH; i++){
 			people_array[i] = NULL;
+		}
+
+		for(int i = 0; i < ARRAY_LENGTH; i++){
+			printf("Is NULL: %s\n", people_array[i] == NULL ? "Y" : "N");
 		}
 	
 		people_array[0] = malloc(sizeof(Person));
