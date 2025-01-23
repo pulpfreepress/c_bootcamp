@@ -24,19 +24,19 @@ __check-tools:
 check-tools: ## Check if required tools are installed
 	@$(MAKE) __check-tools CONFIRM=1
 
-run: all  ## Build everything and run the app
+run: build  ## Build everything and run the app
 	@dist/mainapp
 
-all: setup $(NAME) ## Setup and Build everything
+build: setup $(NAME) ## Setup and Build everything
 
 $(NAME): $(OFILES) ## Build application
-	$(CC) -o $(DISTDIR)$(NAME) $(BUILDDIR)main.o $(BUILDDIR)helloworld.o -I$(SOURCEDIR)helloworld.h
+	$(CC) -o $(DISTDIR)$(NAME) $(BUILDDIR)main.o $(BUILDDIR)helloworld.o
 
 main.o: ## Build main.o
-	$(CC) -o $(BUILDDIR)main.o -c $(SOURCEDIR)main.c -I$(SOURCEDIR)helloworld.h
+	$(CC) -o $(BUILDDIR)main.o -c $(SOURCEDIR)main.c
 
 helloworld.o: ## Build helloworld.o
-	$(CC) -o $(BUILDDIR)helloworld.o -c $(SOURCEDIR)helloworld.c -I$(SOURCEDIR)helloworld.h
+	$(CC) -o $(BUILDDIR)helloworld.o -c $(SOURCEDIR)helloworld.c 
 
 clean: ## Clean the project (i.e., delete build and dist directories.)
 	rm -rf $(BUILDDIR)
