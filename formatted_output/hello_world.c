@@ -21,5 +21,7 @@ int main(){
 	printf("%12.2f\n", 100.006);
 	printf("%12.2f\t%12.2f\n", 100.006, 200.298);
 
+	printf("%x\n", 10);
+
 	return 0;
 }
