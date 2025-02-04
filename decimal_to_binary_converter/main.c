@@ -11,13 +11,14 @@ void int_to_bin(int n, char*);
 
 
 int main(){
-
+    // Declare array of chars 
     char bin[MAX_BINARY_BITS + 1] = "";
+    
+    // Initialize each element to '0'
     for(int i=0; i<MAX_BINARY_BITS; i++){
         bin[i] = '0';
     }
     
-
     int input = 0;
     printf("%s", "Enter number: ");
     scanf("%d", &input);
@@ -32,7 +33,7 @@ void int_to_bin(int n, char bin[]){
     int result = 0;
     int remainder = 0;
     if(n == 0) return;
-    for(int i = 0; i < MAX_BINARY_BITS; i++){
+    for(int i = 1; i < MAX_BINARY_BITS; i++){
         if(n == 0){
             remainder = 0;
             result = 0;
