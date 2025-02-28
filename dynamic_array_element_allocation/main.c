@@ -4,7 +4,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define MAX_STRING_LENGTH 25
+#define MAX_STRING_LENGTH 26
 #define ARRAY_LENGTH  10
 
 /* Define person structure */
@@ -31,6 +31,8 @@ int main(){
 			printf("Is NULL: %s\n", people_array[i] == NULL ? "Y" : "N");
 		}
 
+		printf("%s\n", "--------------------------");
+		
 		for(int i = 0; i < ARRAY_LENGTH; i++){
 			people_array[i] = NULL;
 		}
