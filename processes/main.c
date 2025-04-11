@@ -11,7 +11,11 @@ int main(int argc, char* argv[]){
         return 1;
     }
 
-    printf("Hello from processes!\n");
+    printf("PID = %d\n", getpid());
+    while(1){
+
+    }
+   
 
     if(pid != 0){
         wait(NULL);

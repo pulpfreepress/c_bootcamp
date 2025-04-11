@@ -65,6 +65,7 @@ void run(){
                 double input = 0;
                 scanf("%lf", &input);
                 cpu.memory[operand] = input;
+                dump_cpu_state(&cpu);
                 break;
             }
             
@@ -74,7 +75,8 @@ void run(){
             }
 
             case LOAD: {
-                printf("LOAD Not Implemented...\n");
+                cpu.accumulator = cpu.memory[operand];
+                dump_cpu_state(&cpu);
                 break;
             }
 
