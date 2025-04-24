@@ -81,42 +81,46 @@ void run(){
             }
 
             case STORE: {
-                printf("STORE Not Implemented...\n");
+                cpu.memory[operand] = cpu.accumulator;
                 break;
             }
 
             case ADD: {
-                printf("ADD Not Implemented...\n");
+                cpu.accumulator += cpu.memory[operand];
                 break;
             }
 
             case SUB: {
-                printf("SUB Not Implemented...\n");
+                cpu.accumulator -= cpu.memory[operand];
                 break;
             }
 
             case MUL: {
-                printf("MUL Not Implemented...\n");
+                cpu.accumulator *= cpu.memory[operand];
                 break;
             }
 
             case DIV: {
-                printf("DIV Not Implemented...\n");
+                cpu.accumulator /= cpu.memory[operand];
                 break;
             }
 
             case JMP: {
-                printf("JMP Not Implemented...\n");
+                cpu.program_counter = cpu.memory[operand];
                 break;
             }
 
             case JMPZ: {
-                printf("JMPZ Not Implemented...\n");
+                if (cpu.accumulator == 0){
+                    cpu.program_counter = cpu.memory[operand];
+                } 
                 break;
             }
 
             case JMPN: {
-                printf("JMPN Not Implemented...\n");
+                if (cpu.accumulator < 0){
+                    cpu.program_counter = cpu.memory[operand];
+                }
                 break;
             }
 
