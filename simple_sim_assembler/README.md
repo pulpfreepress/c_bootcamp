@@ -35,7 +35,19 @@ ADD 11
 STORE 12
 WRITE 12
 JMP 20
-HALT
+
+
+
+
+
+
+
+
+
+
+
+
+HALT 00
 
 ```
 
@@ -49,5 +61,17 @@ This should produce the following machine code output:
 2112
 1112
 4020
+
+
+
+
+
+
+
+
+
+
+
+
 4300
 ```
