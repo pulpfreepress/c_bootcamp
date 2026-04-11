@@ -1,0 +1,20 @@
+READ 10
+READ 11
+LOAD 10
+ADD 11
+STORE 12
+WRITE 12
+JMP 20
+
+
+
+
+
+
+
+
+
+
+
+
+HALT 00
