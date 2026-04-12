@@ -32,16 +32,15 @@ typedef struct {
 } Symbol;
 
 
-
-
-
 // Function prototypes
 
 int get_opcode(const char *op);
-void process_asm_file(FILE *fp, int *memory);
+void process_asm_file(FILE *fp);
+void generate_machine_code(FILE *fp);
 void add_symbol(const char *label, int address);
-int write_machine_code_to_file(FILE *fp, int *memory);
-void dump_memory(int *memory);
+int write_machine_code_to_file(FILE *fp);
+void dump_memory();
+void dump_symbol_table();
 
 
 

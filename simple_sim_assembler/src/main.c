@@ -18,14 +18,14 @@ int main(int argc, char *argv[]){
 
     input_file = fopen(argv[1], "r");
 
-    process_asm_file(input_file, memory);
+    process_asm_file(input_file);
 
     fclose(input_file);
 
 
     printf("****** MAIN ***********\n");
 
-    dump_memory(memory);
+    dump_memory();
 
     printf("***********************\n");
 
@@ -34,7 +34,7 @@ int main(int argc, char *argv[]){
 
     output_file = fopen(argv[2], "w");
 
-    write_machine_code_to_file(output_file, memory);
+    write_machine_code_to_file(output_file);
 
     fclose(output_file);
 
