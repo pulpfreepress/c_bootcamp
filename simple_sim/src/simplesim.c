@@ -36,14 +36,13 @@ void dump_cpu_state(CPU * cpu){
 }
 
 void load_demo(CPU * cpu){
-    cpu->memory[0] = 1010;
-    cpu->memory[1] = 1011;
-    cpu->memory[2] = 2010;
-    cpu->memory[3] = 3011;
-    cpu->memory[4] = 2112;
-    cpu->memory[5] = 1112;
-    cpu->memory[6] = 4020;
-    cpu->memory[20] = 4300;
+    cpu->memory[0] = 1008;
+    cpu->memory[1] = 1009;
+    cpu->memory[2] = 2008;
+    cpu->memory[3] = 3009;
+    cpu->memory[4] = 2110;
+    cpu->memory[5] = 1110;
+    cpu->memory[6] = 4300;
 }
 
 void run(){
