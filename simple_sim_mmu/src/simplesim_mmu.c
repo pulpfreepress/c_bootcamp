@@ -29,8 +29,44 @@ void initialize_mmu(MMU * mmu){
 }
 
 
-void load_program(CPU * cpu, char * filename){
+int load_program(char * filename){
+    printf("In load_program() function.\n");
+    return _load_program(&cpu, filename);
+}
 
+
+
+
+int _load_program(CPU * cpu, char * filename){
+
+    printf("In _load_program() function.\n");
+
+    FILE *fp = fopen(filename, "r");
+
+    if(!fp){
+        perror("Error opening program file!");
+        return 1;
+    }
+
+    char line[100];
+    int i = 0;
+
+    mmu.lookup_table[0].offset = 100;
+    mmu.lookup_table[0].process.id = 1;
+    while(fgets(line, sizeof(line), fp)){
+        int instruction = 0;
+        sscanf(line, "%d", &instruction);
+        mmu.lookup_table[0].process.code[i++] = instruction;
+
+    }
+
+    for(int i = 0; i<VIRTUAL_MEMORY; i++){
+        cpu->memory[i + mmu.lookup_table[0].offset] = mmu.lookup_table[0].process.code[i];
+    }
+
+    fclose(fp);
+
+    return 0;
 
 }
 
@@ -73,13 +109,10 @@ void load_demo(CPU * cpu){
 void initialize_simulation(){
     initialize_cpu(&cpu);
     initialize_mmu(&mmu);
-    load_demo(&cpu);
-    
 }
 
 
 void run(){
-    initialize_simulation();
     for(int i = 0; i < MAX_PROGRAMS; i++){
         if(mmu.lookup_table[i].process.id > 0){
             run_process(mmu.lookup_table[i].process.id);
@@ -108,7 +141,7 @@ void run_process(int process_id){
 
     cpu.program_counter = offset;
 
-    dump_cpu_state(&cpu);
+   
     
     while(keepgoing){
         int instruction = (int)cpu.memory[cpu.program_counter++];
@@ -116,13 +149,16 @@ void run_process(int process_id){
         int opcode = instruction / 100;
         int operand = instruction % 100;
 
+        dump_cpu_state(&cpu);
+
         switch(opcode){
+            
             case READ: {
                 printf("Please enter a number: ");
                 double input = 0;
                 scanf("%lf", &input);
                 cpu.memory[operand+offset] = input;
-                dump_cpu_state(&cpu);
+               
                 break;
             }
             
@@ -133,48 +169,48 @@ void run_process(int process_id){
 
             case LOAD: {
                 cpu.accumulator = cpu.memory[operand+offset];
-                dump_cpu_state(&cpu);
+                
                 break;
             }
 
             case STORE: {
                 cpu.memory[operand+offset] = cpu.accumulator;
-                dump_cpu_state(&cpu);
+               
                 break;
             }
 
             case ADD: {
                 cpu.accumulator += cpu.memory[operand + offset];
-                dump_cpu_state(&cpu);
+               
                 break;
             }
 
             case SUB: {
                 cpu.accumulator -= cpu.memory[operand + offset];
-                dump_cpu_state(&cpu);
+               
                 break;
             }
 
             case MUL: {
                 cpu.accumulator *= cpu.memory[operand + offset];
-                dump_cpu_state(&cpu);
+                ;
                 break;
             }
 
             case DIV: {
                 cpu.accumulator /= cpu.memory[operand + offset];
-                dump_cpu_state(&cpu);
+               
                 break;
             }
 
             case JMP: {
-                printf("DEBUG: PC -->  %d\n", cpu.program_counter);
-                printf("DEBUG: OPERAND --> %d\n", operand);
-                printf("DEBUG: OFFSET --> %d\n", offset);
-                printf("DEBUG: OPERAND + OFFSET --> %d\n", operand + offset);
+                //printf("DEBUG: PC -->  %d\n", cpu.program_counter);
+               // printf("DEBUG: OPERAND --> %d\n", operand);
+                //printf("DEBUG: OFFSET --> %d\n", offset);
+                //printf("DEBUG: OPERAND + OFFSET --> %d\n", operand + offset);
 
                 cpu.program_counter = operand + offset;
-                dump_cpu_state(&cpu);
+               
                 break;
             }
 
@@ -182,7 +218,7 @@ void run_process(int process_id){
                 if (cpu.accumulator == 0){
                     cpu.program_counter = operand + offset;
                 } 
-                dump_cpu_state(&cpu);
+                
                 break;
             }
 
@@ -190,7 +226,7 @@ void run_process(int process_id){
                 if (cpu.accumulator < 0){
                     cpu.program_counter = operand + offset;
                 }
-                dump_cpu_state(&cpu);
+                
                 break;
             }
 
@@ -203,9 +239,11 @@ void run_process(int process_id){
                 keepgoing = FALSE;
             }
         }
+
+        
     } // end while
 
-    dump_cpu_state(&cpu);
+    //dump_cpu_state(&cpu);
 
 
 
