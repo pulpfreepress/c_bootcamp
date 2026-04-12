@@ -28,50 +28,50 @@ Converts Simple Sim assembly language into Simple Sim machine code.
 ## Typical Simple Sim Assembler Program
 
 ```
-READ 10
-READ 11
-LOAD 10
-ADD 11
-STORE 12
-WRITE 12
-JMP 20
+START:  READ A
+		READ B
+		LOAD A
+		ADD B
+		STORE C
+		WRITE C
+		READ INC
+		JMP LOOP
+STOP:	HALT
 
 
-
-
-
-
-
-
-
-
-
-
-HALT 00
+A:      .DATA 0
+B:      .DATA 0
+C:      .DATA 0
+INC:	.DATA 0
+LOOP:	LOAD A
+		SUB INC
+		STORE A
+		JMPZ STOP
+		JMP LOOP
 
 ```
 
 This should produce the following machine code output:
 
 ```
-1010
 1011
-2010
-3011
-2112
-1112
-4020
-
-
-
-
-
-
-
-
-
-
-
-
+1012
+2011
+3012
+2113
+1113
+1014
+4015
 4300
+0
+0
+0
+0
+0
+0
+2011
+3114
+2111
+4208
+4015
 ```
