@@ -105,20 +105,20 @@ void run(){
             }
 
             case JMP: {
-                cpu.program_counter = cpu.memory[operand];
+                cpu.program_counter = operand;
                 break;
             }
 
             case JMPZ: {
                 if (cpu.accumulator == 0){
-                    cpu.program_counter = cpu.memory[operand];
+                    cpu.program_counter = operand;
                 } 
                 break;
             }
 
             case JMPN: {
                 if (cpu.accumulator < 0){
-                    cpu.program_counter = cpu.memory[operand];
+                    cpu.program_counter = operand;
                 }
                 break;
             }
